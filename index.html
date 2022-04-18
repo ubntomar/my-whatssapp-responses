@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Whatssapp Responses</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(63, 65, 46);
+        }
+        main{
+            display: flex;
+            justify-content: center;
+        }
+        section{
+            margin:2rem;
+            min-width: 25vw;
+            border: 1px solid rgb(199, 199, 219);
+            
+        }
+        .container{
+            padding: 1rem;
+            background-color: rgb(255, 255, 255);
+        }
+        .container-head h1{
+            color:rgb(4, 41, 9);
+
+        }
+        .container-foot{
+            padding:.5rem;
+            text-align: center;
+            background-color: rgb(30, 129, 210);
+            color:white;
+        }
+        
+        textarea{
+            padding:1rem;
+            width:100%;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <section class="container">
+            <div class="container-head">
+                <h1>Gracias por el pago</h1>
+                <h2>&nbsp;</h2>
+            </div>
+            <div class="contanier-body">
+                <textarea id="textArea" rows="" cols="">Muchísimas gracias, buen día!!</textarea>
+            </div>
+            <div  class="container-foot">
+                <label>Copied!</label>
+            </div>
+        </section>
+        <section class="container">
+            <div class="container-head">
+                <h1>Gracias por el pago</h1>
+                <p>Daños</p>
+            </div>
+            <div class="contanier-body">
+                <textarea id="textArea" rows="" cols="">Muchísimas gracias, tuvimos que reparar varios daños en la red debido a las lluvias. buen día!!</textarea>
+            </div>
+            <div  class="container-foot">
+                <label>Copied!</label>
+            </div>
+        </section>
+        <section class="container">
+            <div class="container-head">
+                <h1>Gracias por el pago</h1>
+                <p>Revisar</p>
+            </div>
+            <div class="contanier-body">
+                <textarea id="textArea" rows="" cols="">Muchísimas gracias, ok vamos a revisar</textarea>
+            </div>
+            <div  class="container-foot">
+                <label>Copied!</label>
+            </div>
+        </section>
+        
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+
+            let foot=document.getElementsByClassName('container-foot')
+            Array.from(foot).forEach(item=>{
+                item.style.display='none'
+            })
+ 
+            let messages=document.querySelectorAll('section')
+            messages.forEach((item)=>{
+                item.addEventListener('click',()=>{
+                    item.childNodes[5].style.display='block'
+                    let text= item.childNodes[3].childNodes[1].select()
+                    navigator.clipboard.writeText(item.childNodes[3].childNodes[1].value);
+                    setTimeout(()=>{
+                        item.childNodes[5].style.display='none'
+                    },1000)
+                })
+            })
+        })
+    </script>
+</body>
+</html>
